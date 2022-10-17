@@ -27,10 +27,32 @@ function App() {
       </section>
     );
   }
+  const { company, dates, duties, title } = jobs[value];
 
-  return <div className="App">
-    <h1>jobs</h1>
-  </div>;
+  return (
+    <section className="section">
+      <div className="title">
+        <h2>experience</h2>
+        <div className="underline"></div>
+      </div>
+
+      <div className="jobs-center">
+        <article className="job-info">
+          <h3>{title}</h3>
+          <h4>{company}</h4>
+          <p className="job-date">{dates}</p>
+          {duties.map((duty, index) => {
+            return (
+              <div key={index} className="job-description">
+                <FaAngleDoubleRight className="job-icon" />
+                <p>{duty}</p>
+              </div>
+            );
+          })}
+        </article>
+      </div>
+    </section>
+  );
 }
 
 export default App;
